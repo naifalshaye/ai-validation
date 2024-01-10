@@ -5,7 +5,7 @@ namespace Naif\SpamValidationRule;
 use Illuminate\Support\ServiceProvider;
 use OpenAI;
 
-class SpamValidationRule extends ServiceProvider
+class SpamValidationRuleServiceProvider extends ServiceProvider
 {
     public function register()
     {
