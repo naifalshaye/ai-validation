@@ -7,14 +7,6 @@ use OpenAI;
 
 class SpamRule implements Rule
 {
-    protected $openai_client;
-
-
-    public function __construct(OpenAI $openai_client)
-    {
-        $this->openai_client = $openai_client;
-    }
-
     /**
      * Determine if the validation rule passes.
      *
@@ -24,7 +16,10 @@ class SpamRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        $result = $this->openai_client->chat()->create([
+        $apiKey = env('OPENAI_API_KEY');
+        $open_ai = new OpenAI($apiKey);
+
+        $result = $open_ai->chat()->create([
             'model' => 'gpt-3.5-turbo-1106',
             'messages' => [
                 ['role' => 'system', 'content' => 'You are a forum moderator who always responds using JSON.'],
