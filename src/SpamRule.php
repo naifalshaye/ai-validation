@@ -21,10 +21,10 @@ class SpamRule implements ValidationRule
             $postData = [
                 'model' => 'gpt-3.5-turbo-1106',
                 'messages' => [
-                    ['role' => 'system', 'content' => 'You are a forum moderator who always responds using JSON.'],
+                    ['role' => 'system', 'content' => 'You are an AI-based spam detection tool. Respond in JSON format.'],
                     [
                         'role' => 'user',
-                        'content' => "Please inspect the following text and determine if it is spam.\n" . $value . "\nExpected Response Example:\n{\"is_spam\": true|false}"
+                        'content' => "Analyze this text and ascertain whether it's spam:.\n" . $value . "\nExpected Response Example:\n{\"is_spam\": true|false}"
                     ],
                 ]
             ];
