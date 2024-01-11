@@ -55,7 +55,6 @@ class SpamRule implements ValidationRule
             if (json_last_error() != JSON_ERROR_NONE) {
                 throw new Exception("JSON decoding error: " . json_last_error_msg());
             }
-
             if (isset($responseData['choices'][0]['message']['content'])) {
                 $result = $responseData['choices'][0]['message']['content'];
                 $resultArray = json_decode($result, true);
@@ -63,8 +62,7 @@ class SpamRule implements ValidationRule
                 if (json_last_error() != JSON_ERROR_NONE) {
                     throw new Exception("JSON decoding error: " . json_last_error_msg());
                 }
-
-                if ($resultArray['is_spam'] === false) {
+                if ($resultArray['is_spam']) {
                     $fail('The :attribute contains spam.');
                 }
             }
