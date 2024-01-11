@@ -3,18 +3,17 @@
 namespace Naif\SpamValidationRule;
 
 use Exception;
-use Illuminate\Contracts\Validation\Rule;
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
 
-class SpamRule implements Rule
+class SpamRule implements ValidationRule
 {
     /**
-     * Determine if the validation rule passes.
+     * Run the validation rule.
      *
-     * @param string $attribute
-     * @param mixed $value
-     * @return bool
+     * @param \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString $fail
      */
-    public function passes($attribute, $value)
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         try {
             $apiUrl = 'https://api.openai.com/v1/chat/completions';
@@ -65,23 +64,12 @@ class SpamRule implements Rule
                     throw new Exception("JSON decoding error: " . json_last_error_msg());
                 }
 
-                return $resultArray['is_spam'] ?? null;
-            } else {
-                return null;
+                if ($resultArray['is_spam'] === false) {
+                    $fail('The :attribute contains spam.');
+                }
             }
         } catch (\Exception $e) {
-            return $e->getMessage();
+            throw new Exception($e->getMessage());
         }
-
-    }
-
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
-    public function message()
-    {
-        return 'The :attribute contains spam.';
     }
 }
