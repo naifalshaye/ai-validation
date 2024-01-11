@@ -3,8 +3,7 @@
     "description": "An efficient Laravel validation rule using ChatGPT to identify and filter spam input.",
     "type": "library",
     "require": {
-        "php": "^8.1",
-        "openai-php/client": "^0.8.1"
+        "php": "^7.3|^8.1"
     },
     "license": "MIT",
     "autoload": {

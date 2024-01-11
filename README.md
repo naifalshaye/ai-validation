@@ -5,6 +5,7 @@ An efficient Laravel validation rule using ChatGPT to identify and filter spam i
 ### Requirements
 - PHP 8.1 or higher
 - Laravel 9.0 or higher
+- Open AI API Key
 
 ## Installation
 
@@ -14,6 +15,13 @@ You can install the package into a Laravel app via composer:
 composer require naif/spam-validation-rule
 ```
 
+#### OpenAI API Key
+Create your API Key from https://platform.openai.com/api-keys
+
+Add API Key in .env file
+```
+CHATGPT_API_KEY=
+```
 ## Usage
 
 In field validation rule
