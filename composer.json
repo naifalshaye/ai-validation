@@ -1,14 +1,15 @@
 {
-    "name": "naif/spam-validation-rule",
-    "description": "An efficient Laravel validation rule using ChatGPT to identify and filter spam input.",
+    "name": "naif/ai-validation",
+    "description": "AI Validator for Laravel: Uses ChatGPT (GPT-3.5-turbo) to easily check and filter user inputs.",
     "type": "library",
     "require": {
-        "php": "^7.3|^8.1"
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^8.0|^9.0|^10.0"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Naif\\SpamValidationRule\\": "src/"
+            "Naif\\AIValidation\\": "src/"
         }
     },
     "authors": [
@@ -27,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Naif\\SpamValidationRule\\SpamValidationRuleServiceProvider"
+                "Naif\\AIValidation\\AIValidationServiceProvider"
             ]
         }
     }
