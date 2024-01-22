@@ -6,11 +6,17 @@ return [
 
     'validation_types' => [
         'spam',
+        'nonsense',
+        'botcheck',
+        'emoji_overuse',
         'promotional',
+        'ads',
         'swearing',
         'hate_speech',
-        'cultural_sensitivity',
+        'political_bias',
+        'adult_content',
         'secure',
+        'phishing',
+        'personal_info',
     ]
-
 ];

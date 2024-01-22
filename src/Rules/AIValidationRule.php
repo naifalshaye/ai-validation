@@ -3,7 +3,6 @@
 namespace Naif\AIValidation\Rules;
 
 use Exception;
-use JsonException;
 
 class AIValidationRule
 {
@@ -46,7 +45,7 @@ class AIValidationRule
 
             $responseData = json_decode($response, true);
             if (json_last_error() != JSON_ERROR_NONE) {
-                throw new JsonException("JSON decoding error: " . json_last_error_msg());
+                throw new Exception("JSON decoding error: " . json_last_error_msg());
             }
 
             if (isset($responseData['choices'][0]['message']['content']) && is_string($responseData['choices'][0]['message']['content'])) {
