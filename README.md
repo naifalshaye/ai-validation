@@ -3,8 +3,8 @@
 AI Validator for Laravel: Uses ChatGPT (GPT-3.5-turbo) to easily check and filter user inputs.
 
 ### Requirements
-- PHP 7.3 or higher
-- Laravel 5.5 or higher
+- PHP 7.2 or higher
+- Laravel 6.0 or higher
 - Open AI API Key
 
 ## Installation
