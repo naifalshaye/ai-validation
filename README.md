@@ -15,6 +15,10 @@ You can install the package into a Laravel app via composer:
 composer require naif/ai-validation
 ```
 
+### Publish config file
+```
+php artisan vendor:publish --provider="Naif\AIValidation\AIValidationServiceProvider" 
+```
 #### OpenAI API Key
 Create your API Key from https://platform.openai.com/api-keys
 
