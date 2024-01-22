@@ -9,7 +9,7 @@ class AIValidationRule
     public function validate($type, $value)
     {
         try {
-            $chatgpt_api_key = config('ai-validation.chatgpt-api_key');
+            $chatgpt_api_key = config('ai-validation.chatgpt_api_key');
             if (!isset($chatgpt_api_key)) {
                 throw new Exception('ChatGPT API key is required.');
             }
